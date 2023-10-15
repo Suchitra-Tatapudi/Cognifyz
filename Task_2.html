@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Task-2</title>
+</head>
+<body>
+<style>
+    .title{
+    color:#100a05;
+    font-family: cursive;
+}
+span{
+    color:black;
+    font-weight: bold;
+}
+.cb{
+    color:rgb(231, 155, 167);
+}
+#colorButton {
+    background-color: rgb(231, 155, 167);
+    color: white;
+    border: none;
+    padding: 20px 30px;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px #252525f7;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    font-weight: bold;
+}
+#container-btn{
+  text-align: right;
+  padding-top:10%;
+  padding-right:5%;
+background-image: url("https://static.vecteezy.com/system/resources/previews/002/030/908/non_2x/white-background-with-pretty-flowers-free-photo.jpg");
+background-size: cover;
+height:80vh;
+border-radius: 8px;
+  
+}
+.container{
+ background-image: url("https://images.unsplash.com/photo-1625225233840-695456021cde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2FsY3VsYXRvcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80");
+height:100vh;
+padding:10px;
+background-size: cover;
+
+}
+.h-title{
+    color:black;
+    font-size: 30px;
+    margin-top: 5%;
+}
+.cal-input{
+    width:300px;
+    height:30px;
+    
+}
+.btn{
+    width:150px;
+    padding:10px;
+    background-color: black;
+    color:white;
+    border-radius: 5px;
+    border-style: none;
+    margin-top:10px;
+    font-size:15px;
+    font-weight:bold;
+
+}
+label{
+    color:black;
+    font-weight: 700;
+    font-size:18px;
+}
+p{
+    color:black;
+    font-size: 18px;
+}
+</style>
+
+    <!--Onlcick button color change section-->
+    <div id="container-btn">
+        <h1 class="title">"Click for <span class="cb">Chromatic</span> Magic"</h1>
+    <button id="colorButton">Change Your View with a Tap</button>
+    </div>
+    <script>
+        var button = document.getElementById("colorButton");
+        button.addEventListener("click", function() {
+            var randomColor = getRandomColor();
+            button.style.backgroundColor = randomColor;
+        });
+        function getRandomColor() {
+            var letters = "0123456789ABCDEF";
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+       // greetings based on time
+        var currentDate = new Date();
+        var currentHour = currentDate.getHours();
+    
+      
+        var greeting;
+    
+        if (currentHour >= 5 && currentHour < 12) {
+            greeting = "Good morning!";
+        } else if (currentHour >= 12 && currentHour < 17) {
+            greeting = "Good afternoon!";
+        } else if (currentHour >= 17 && currentHour < 20) {
+            greeting = "Good evening!";
+        } else {
+            greeting = "Good night!";
+        }
+        alert(greeting);
+    </script>
+
+<!-- calculator-->
+
+<center>
+<div class="container">
+    <h1 class="h-title">Addition Calculator</h1><br><br><br>
+    
+    <label for="num1">Enter the first number:</label>
+    <input type="number" id="num1" class="cal-input">
+    <br><br>
+    <label for="num2">Enter the second number:</label>
+    <input type="number" id="num2" class="cal-input">
+    <br><br>
+    <button onclick="calculate()" class="btn">Add</button>
+    
+    <p>You get: <span id="result"></span></p>
+</div>
+</center>
+    <script>
+        function calculate() {
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+            if (!isNaN(num1) && !isNaN(num2)) {
+                var sum = num1 + num2;
+                document.getElementById("result").textContent = sum;
+            } else {
+                document.getElementById("result").textContent = "Invalid input";
+            }
+        }
+    </script>  
+</body>
+</html>
